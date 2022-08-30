@@ -1,0 +1,807 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+
+/*------------  BORDER AND BACKGROUND VIDEO (MP4)  AND CARRUSEL 3D AND SCROLL BAR -------------*/
+
+
+/*BACKBROUND */
+
+#background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.preloader {
+    position: absolute;
+    background: black !important;
+    width: 100%;
+    height: 2000px;
+    text-align: center;
+    z-index: 99;
+}
+
+.tituloLoader {
+    color: white;
+    font-family: LineageII;
+    margin: 100px auto;
+    font-size: 20px;
+    font-weight: bold !important;
+    animation: Color 4s linear infinite;
+    -webkit-animation: Color 2s ease-in-out infinite;
+}
+
+@keyframes Color {
+    0% {
+        color: #eaede8;
+        font-size: 0px;
+    }
+    30% {
+        color: #e9704f;
+        font-size: 15px;
+    }
+    40% {
+        color: #d21414;
+        font-size: 30px;
+    }
+    60% {
+        color: #fb2a00;
+        font-size: 50px;
+    }
+    80% {
+        color: #3c3c3c;
+        font-size: 50px;
+    }
+    100% {
+        color: #000000;
+        font-size: 60px;
+    }
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 5%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #292929;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #be0606;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #b43123;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+/*SCROLLBAR */
+
+body {
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #6B120C;
+    border-radius: 2px;
+}
+
+
+/*BORDER BODY IMAGE */
+
+.nk-page-border .nk-page-border-t,
+.nk-page-border .nk-page-border-r,
+.nk-page-border .nk-page-border-b,
+.nk-page-border .nk-page-border-l {
+    position: fixed;
+    z-index: 2000;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    user-drag: none;
+    pointer-events: none;
+    background-size: 100% 100%;
+}
+
+.nk-page-border .nk-page-border-t,
+.nk-page-border .nk-page-border-b {
+    left: 0;
+    width: 100%;
+}
+
+.nk-page-border .nk-page-border-t {
+    top: 0;
+    background-image: url("../images/border-top.png");
+}
+
+.nk-page-border .nk-page-border-b {
+    bottom: 0;
+    background-image: url("../images/border-bottom.png");
+}
+
+.nk-page-border .nk-page-border-r,
+.nk-page-border .nk-page-border-l {
+    top: 0;
+    height: 100%;
+}
+
+.nk-page-border .nk-page-border-r {
+    right: 0;
+    background-image: url("../images/border-right.png");
+}
+
+.nk-page-border .nk-page-border-l {
+    left: 0;
+    background-image: url("../images/border-left.png");
+}
+
+.nk-page-border .nk-page-border-t,
+.nk-page-border .nk-page-border-b {
+    height: 100px;
+}
+
+.nk-page-border .nk-page-border-r,
+.nk-page-border .nk-page-border-l {
+    width: 100px;
+}
+
+@media (max-width: 543px) {
+    .nk-page-border .nk-page-border-t,
+    .nk-page-border .nk-page-border-b {
+        height: 50px;
+    }
+    .nk-page-border .nk-page-border-r,
+    .nk-page-border .nk-page-border-l {
+        width: 50px;
+    }
+}
+
+
+/*CARROUSEL 3D */
+
+.containerCarousel {
+    position: relative;
+    width: 320px;
+    background-color: yellow !important;
+    margin: auto;
+    perspective: 1000px;
+}
+
+.carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: rotate360 60s infinite forwards linear;
+}
+
+.carousel__face {
+    position: absolute;
+    width: 300px;
+    height: 187px;
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    background-size: cover;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
+    display: flex;
+}
+
+span {
+    margin: auto;
+    font-size: 2rem;
+}
+
+.carousel__face:nth-child(1) {
+    background-image: url("../images/Shot00002.jpg");
+    transform: rotateY( 0deg) translateZ(430px);
+}
+
+.carousel__face:nth-child(2) {
+    background-image: url("../images/Shot00004.jpg");
+    transform: rotateY( 40deg) translateZ(430px);
+}
+
+.carousel__face:nth-child(3) {
+    background-image: url("../images/Shot00005.jpg");
+    transform: rotateY( 80deg) translateZ(430px);
+}
+
+.carousel__face:nth-child(4) {
+    background-image: url("../images/Shot00006.jpg");
+    transform: rotateY(120deg) translateZ(430px);
+}
+
+.carousel__face:nth-child(5) {
+    background-image: url("../images/Shot00007.jpg");
+    transform: rotateY(160deg) translateZ(430px);
+}
+
+.carousel__face:nth-child(6) {
+    background-image: url("../images/Shot00008.jpg");
+    transform: rotateY(200deg) translateZ(430px);
+}
+
+.carousel__face:nth-child(7) {
+    background-image: url("../images/Shot00009.jpg");
+    transform: rotateY(240deg) translateZ(430px);
+}
+
+.carousel__face:nth-child(8) {
+    background-image: url("../images/Shot00010.jpg");
+    transform: rotateY(280deg) translateZ(430px);
+}
+
+.carousel__face:nth-child(9) {
+    background-image: url("../images/Shot00011.jpg");
+    transform: rotateY(320deg) translateZ(430px);
+}
+
+@keyframes rotate360 {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(-180deg);
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .galery {
+        display: none;
+    }
+    .navegacion ul li a {
+        color: white;
+        font-family: "LineageII";
+        font-size: 20px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+}
+
+
+/*------------ FIN BORDER AND BACKGROUND VIDEO (MP4)  AND CARRUSEL 3D -------------*/
+
+
+/*------------ HEADER TPL --------------*/
+
+@font-face {
+    font-family: "LineageII";
+    src: url("../fonts/49_la2font.ttf");
+}
+
+.menu {
+    position: relative;
+    margin: 0px !important;
+}
+
+.social {
+    background-color: black;
+}
+
+.social .col-sm-7 {}
+
+.social .col-sm-5 {}
+
+.social .col-sm-5 table {
+    padding: 10px;
+    margin: 20px auto;
+    border: 1px solid rgb(89, 89, 89);
+    border-radius: 5px;
+}
+
+.social .col-sm-5 table td {
+    padding: 10px;
+}
+
+.social .col-sm-5 table tr td a {
+    color: white;
+    text-decoration: none;
+}
+
+.social .col-sm-5 table tr td a:hover {
+    background-color: black;
+}
+
+.singup {
+    background-color: #6B120C;
+    padding: 6px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.salir {
+    background-color: #6B120C;
+    padding: 6px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.singup:hover {
+    background-color: black;
+}
+
+.salir .social .col-sm-5 table tr td:hover {}
+
+.dropdown-menu {
+    background-color: #0E0E0E;
+}
+
+.navegacion {
+    background-color: #0e0e0ef6;
+}
+
+.navegacion ul li a {
+    color: white;
+    font-family: "LineageII";
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.navegacion ul li a:hover {
+    color: red !important;
+    background-color: black !important;
+    border-radius: 5px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: black !important;
+}
+
+
+/*------------ FIN HEADER TPL --------------*/
+
+
+/*------------  FOOTER TPL --------------*/
+
+body {
+    margin-right: -10px !important;
+}
+
+footer {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    padding: 50px;
+    height: 200px;
+    background-color: black !important;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    background-image: url("images/footer-corner.png");
+    font-family: "LineageII";
+    margin-bottom: -15px;
+}
+
+footer ul li a {
+    color: white !important;
+}
+
+.footer::-webkit-scrollbar {
+    width: 12px;
+}
+
+.footer::-webkit-scrollbar-track {
+    background: #090909 !important;
+}
+
+.footer::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: black !important;
+}
+
+.imgFooter {
+    width: 100%;
+    position: relative;
+}
+
+
+/*------------ FIN FOOTER TPL --------------*/
+
+
+/*------------  HOME TPL --------------*/
+
+.banner {
+    background-color: black;
+    height: 500px;
+    position: relative;
+    background-image: url("../images/banner2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.banner button {
+    display: block;
+    position: relative;
+    top: 200px;
+    border: none;
+    background-color: #060606;
+    padding: 10px;
+    color: white;
+    font-size: 30px;
+    width: 200px;
+    height: 70px;
+    margin: auto;
+    font-family: 'Amatic SC', cursive;
+}
+
+.content {
+    margin-top: 50px;
+    background-color: #0E0E0E;
+    position: relative;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.galery {
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    text-align: center;
+    height: 500px;
+    color: white;
+    width: 100%;
+    font-family: 'Amatic SC', cursive;
+    font-size: 40px !important;
+}
+
+
+/*------------  FIN HOME --------------*/
+
+
+/*------------  DOWNLOADS TPL --------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+.downloads {
+    position: relative;
+    height: 600px;
+    background-color: rgba(38, 38, 38, 0.79);
+}
+
+.downloads ul li {
+    text-align: center;
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    list-style: none;
+}
+
+.tittleDownloads {
+    position: relative;
+    text-align: center;
+    font-size: 50px !important;
+    font-family: 'Amatic SC', cursive;
+    color: white;
+}
+
+
+/*------------  FIN DOWNLOADS TPL --------------*/
+
+
+/*------------   MYPROFILE TPL --------------*/
+
+.myprofile {
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+.selectChar {
+    width: 150px;
+    margin: auto;
+}
+
+.selectChar select {
+    width: 100%;
+    text-align: center;
+    background-color: none !important;
+    border-radius: 5px;
+    height: 50px;
+}
+
+.selectChar button {
+    margin: 10px auto;
+    padding: 10px;
+    border: none;
+    background-color: #6B120C !important;
+    border-radius: 5px;
+}
+
+.menuMiPerfil {
+    background-color: black;
+}
+
+.menuMiPerfil>a {
+    color: white !important;
+}
+
+.menuMiPerfil>a:active {
+    background-color: #6B120C;
+}
+
+.containerMenuPerfil {
+    width: 100%;
+    height: 1200px;
+}
+
+.vitalidad {
+    width: 200px;
+    box-shadow: #090909;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.head {
+    background-color: green;
+    min-width: 100%;
+}
+
+.cp {
+    background-color: #D6A242;
+}
+
+.hp {
+    background-color: red;
+}
+
+.mp {
+    background-color: blue;
+}
+
+.exp {
+    background-color: grey;
+}
+
+.offline {
+    height: 25px;
+    width: 25px;
+    background-color: rgb(163, 39, 30);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.online {
+    height: 25px;
+    width: 25px;
+    background-color: rgb(34, 163, 30);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.combat {
+    background-color: #12120F;
+    width: 250px;
+    margin: auto;
+}
+
+.combat table tr td {
+    text-align: center;
+    width: 82px;
+}
+
+.inventario {
+    overflow-y: scroll;
+    height: 650px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    height: 62;
+    width: 120px;
+    background-color: black;
+}
+
+.item:hover {
+    background: none;
+}
+
+.item .itemEquiped {
+    color: red;
+    font-size: 10px;
+}
+
+.noEquiped {
+    font-size: 10px;
+}
+
+.chatBox {
+    background-color: black !important;
+    min-height: 100% !important;
+    border-top-left-radius: 10px 200px;
+    border-bottom-left-radius: 10px 200px;
+}
+
+
+/*------------ FIN  MYPROFILE TPL --------------*/
+
+
+/*------------ H1 LINEAGE II AKLAS TITULO NAV ANIMACION  --------------*/
+
+.glitch {
+    color: rgb(255, 255, 255);
+    position: relative;
+    font-size: 50px;
+    font-family: "LineageII";
+    animation: glitch 5s 5s infinite;
+    text-align: center;
+}
+
+.glitch:hover {
+    color: red;
+}
+
+.glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    background: black;
+    overflow: hidden;
+    top: 0;
+    animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+}
+
+.glitch::after {
+    content: attr(data-text);
+    overflow: hidden;
+    top: 0;
+    animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
+}
+
+@keyframes glitch {
+    1% {
+        transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+        transform: rotateX(0deg) skewX(0deg);
+    }
+}
+
+@keyframes noise-1 {
+    $steps: 30;
+    @for $i from 1 through $steps {
+        #{percentage($i*(1/$steps))} {
+            $top: random(100);
+            $bottom: random(101 - $top);
+            clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+        }
+    }
+}
+
+@keyframes noise-2 {
+    $steps: 30;
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} {
+            $top: random(100);
+            $bottom: random(101 - $top);
+            clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+        }
+    }
+}
+
+@keyframes glitch-2 {
+    1% {
+        transform: rotateX(10deg) skewX(70deg);
+    }
+    2% {
+        transform: rotateX(0deg) skewX(0deg);
+    }
+}
+
+
+/*------------ FIN H1 LINEAGE II AKLAS TITULO NAV ANIMACION  --------------*/
+
+.panelAdmin {
+    position: relative;
+    text-align: center;
+    height: 1000px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.noticias {
+    background-color: black;
+}
+
+.usuarios {
+    background-color: #000000af;
+}
+
+.listUser {
+    height: 500px;
+    width: 80%;
+    margin: 40px auto;
+    overflow-y: scroll;
+    color: white;
+    border: 1px solid #6B120C;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.primerList>li {
+    background-color: black;
+    padding: 10px;
+    border-top: 1px solid #6B120C;
+}
+
+.primerList>li:hover {
+    background-color: rgba(255, 0, 0, 0);
+}
+
+.listUser::-webkit-scrollbar {
+    width: 12px;
+}
+
+.listUser::-webkit-scrollbar-track {
+    background: #090909;
+}
+
+.listUser::-webkit-scrollbar-thumb {
+    background-color: #6B120C;
+    border-radius: 2px;
+}
+
+.listUser ul li {
+    list-style: none;
+}
