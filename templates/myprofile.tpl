@@ -26,6 +26,8 @@
             </div>
         </div>
         <div class=" col-sm-4 chatBox">
+
+        <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
             {include file="templates/vue/chatbox.vue"}
 
         </div>
@@ -35,10 +37,6 @@
 
 
 </div>
-<style>
-    button {
-        background-color: white !important;
-    }
-</style>
+
 <script src="js/myprofile.js"></script>
 {include file="templates/footer.tpl " }

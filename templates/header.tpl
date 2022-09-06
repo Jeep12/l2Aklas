@@ -18,18 +18,20 @@
 </head>
 
 <body>
-<div class="preloader" id="preload">  
-    <h1 class="tituloLoader">Lineage I I Aklas</h1>
-<div id="loader"></div></div>
+    <div class="preloader" id="preload">
+        <h1 class="tituloLoader">Lineage I I Aklas</h1>
+        <div id="loader"></div>
+    </div>
 
-<video autoplay muted loop id="background">
+    <video autoplay muted loop id="background">
 <source src="images/bg-2.mp4" type="video/mp4">
 </video>
     <div class="menu  ">
         <div class="row social">
             <div class="col-sm-7">
-            <h1 class="glitch" data-text="Lineage II Aklas">
-            </h1>
+                <h1 class="glitch" data-text="Lineage II Aklas">
+
+                </h1>
             </div>
             <div class="col-sm-5">
                 <table>
@@ -88,20 +90,20 @@
                         </li>
                         {if $session eq true}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Mi Cuenta
                     </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="myprofile">Mi perfil</a></li>
-                        
-                            <hr>
-                            <li><a class="dropdown-item" href="#">Aklas shop</a></li>
-                            {if $admin eq 1}
+                                <li><a class="dropdown-item" href="myprofile">Mi perfil</a></li>
+
+                                <hr>
+                                <li><a class="dropdown-item" href="#">Aklas shop</a></li>
+                                {if $admin eq 1}
                                 <hr>
                                 <li><a class="dropdown-item" href="panelAdmin">Panel de control</a></li>
-                              
+
                                 {/if}
-                            
+
                             </ul>
                         </li>
                         {/if}

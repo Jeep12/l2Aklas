@@ -163,3 +163,27 @@ function removeLoader() {
         $("#preload").remove(); //Remueve los stylos del div preload
     });
 }
+
+
+const tokenClient = token();
+tokenClient.then(e => {
+    practica(e);
+})
+async function token() {
+    let res = await fetch(url + "/getToken/", {
+        'method': 'GET',
+        'headers': {
+
+            'Content-Type': 'application/json'
+        }
+    });
+    let response = await res.json();
+    return response;
+
+}
+async function practica(token) {
+    console.log("https://localhost/l2_Aklas/api/pruebaApiToken/" + token);
+    fetch("https://localhost/l2_Aklas/api/pruebaApiToken/" + token).then(respuesta => {
+        respuesta.json().then(e => {})
+    }).catch(error => {});
+}

@@ -642,20 +642,82 @@ footer ul li a {
 }
 
 .inventario {
-    overflow-y: scroll;
-    height: 650px;
-    display: flex;
-    flex-wrap: wrap;
+    border: 2px solid white;
+    display: grid;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fill, minmax(32px, 1fr));
 }
 
-.item {
-    height: 62;
-    width: 120px;
-    background-color: black;
+.popover__wrapper {
+    position: relative;
+    /* this is the key */
+    display: block;
 }
 
-.item:hover {
-    background: none;
+.popover__content {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    position: absolute;
+    left: calc(100% + 12px);
+    top: calc(50%);
+    transform: translateY(-50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.87);
+    padding: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    width: auto;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+
+/* this is the pointer */
+
+.popover__content:before {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    left: -10px;
+    top: calc(50% - 10px);
+    border-style: solid;
+    border-color: transparent rgba(0, 0, 0, 0.87) transparent transparent;
+}
+
+
+/* this triggers display */
+
+.item:hover .popover__content {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+
+
+/* TEST DIFFERENT SIZES */
+
+.itemPopover {
+    width: 200px;
+    height: 30px;
+    background-color: lightblue;
+    border: 1px solid blue;
+    position: relative;
+    left: 20px;
+    top: 30px;
+    opacity: 0;
+}
+
+.item:checked~.pop-over {
+    opacity: 1;
+}
+
+.itemPopover {
+    display: none;
+    background-color: red;
+    min-width: 100px;
 }
 
 .item .itemEquiped {

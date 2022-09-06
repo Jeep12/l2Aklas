@@ -22,11 +22,16 @@ const VueChars = new Vue({
         show: 0,
         horas: "",
         inv: [],
-    }
+        statsItem: [],
+    },
+
+
 });
+
 let btnShowPj = document.getElementById("btn-show-pj");
 btnShowPj.addEventListener("click", showPj);
 async function showPj() {
+    let itemsDataPopover = [];
     let tiempoOnline = 0;
     let selectorPj = document.getElementById("selectorPj").value;
     let res = await fetch(url + "/getpj/" + selectorPj);
@@ -45,8 +50,43 @@ async function showPj() {
     });
     //Inventario
     getInv(response.obj_Id).then(e => {
-        VueChars.inv = e;
 
+        //Falta terminar, este codigo es para crear un arreglo auxiliar con los datos de todos los item del inventario
+        //
+        for (let i = 0; i < e.length; i++) {
+            let item;
+            if (e[i].p_def != null) {
+                item = {
+                    "name": e.name,
+                    "atack": e.p_dam,
+                    "def": e.p_def
+                };
+                itemsDataPopover.push(item);
+
+            } else if (e[i].p_dam) {
+                item = {
+                    "name": e.name,
+                    "atack": e.p_dam,
+                    "def": e.p_def
+                };
+                itemsDataPopover.push(item);
+            } else {
+                item = {
+                    "name": 0,
+                    "atack": 0,
+                    "def": 0
+                };
+                itemsDataPopover.push(item);
+
+
+            }
+
+            console.log(e[i].p_def);
+        }
+        VueChars.inv = e;
+        console.log("Tamanio auxiliar: " + itemsDataPopover.length);
+        console.log("Tamanio original: " + e.length);
+        VueChars.statsItem = itemsDataPopover;
     });
     //Clan
     if (response.clanid != 0) {

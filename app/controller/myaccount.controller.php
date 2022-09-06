@@ -1,38 +1,20 @@
 <?php
 require_once("app/model/user.model.php");
 require_once("helpers/users.helpers.php");
-require_once("vendor/autoload.php");
-use Firebase\JWT\JWT;
+
 class AccountController
 {
-
+    
+  protected $token;
     public function __construct()
     {
+
         $this->modelUser = new UserModel();
         $this->userHelper = new UserHelper();
     }
     
-    protected  function validarToken($token){
-        try {
+ 
 
-        //  $key = Services::getScretKey();
-        }catch(Exception $e){
-
-        }
-        
-    }
-    static public function jwt ($id,$email){
-     $time = time();
-     $token = array(
-      "iat"=>$time,
-      "exp"=>$time + (60),
-      "data"=>[
-        "account"=>$id,
-        "email"=>$email
-      ]);
-
-     return $token;
-    }
     public function login()
     {
 
@@ -44,13 +26,9 @@ class AccountController
             $passwordBase = base64_encode(pack('H*', sha1($password)));
 
             if ($user && $user->password == $passwordBase) {
-
-              $token =  $this->jwt($user->login,$user->email);
-              $jwt = JWT::encode( $token,"lskadl20lsdsñzñ204odk390akx",'HS256');
-              $this->modelUser->updateJWT($jwt,$token['exp'],$token['data']['account']);
-              $arr = explode('.', $jwt);
-         
-                $this->userHelper->login($user);
+           
+            
+              $this->userHelper->login($user);
                 header("Location:" . BASE_URL);
               }else {
                 header("Location:" . BASE_URL . "showlogin?error=true");

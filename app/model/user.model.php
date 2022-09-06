@@ -9,6 +9,15 @@ class UserModel extends Model {
         $query->execute([$exp,$token,$account]);
 
     }
+    public function getToken($user){
+       
+        $query = $this->pdo->prepare('SELECT token FROM accounts WHERE login = ?');
+        $query->execute([$user]);
+        $token = $query->fetch(PDO::FETCH_OBJ);
+        return $token;
+
+
+    }
        public function addAccount($name, $password,$email)
 {
         $query = $this->pdo->prepare("INSERT INTO `accounts` (`login`, `password`, `lastactive`, `access_level`, `lastIP`, `lastServer`,`email`) VALUES (?, ?, ?, ?, ?,?,?);");

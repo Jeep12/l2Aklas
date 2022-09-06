@@ -12,13 +12,11 @@
 <body>
 
     <video autoplay muted loop id="background">
-        <source src="images/bg-2.mp4" type="video/mp4">
+        <source src="images/mp4Videos/fondoBlanco.mp4" type="video/mp4">
     </video>
     <div class="register">
         <h1>Lineage 2 Aklas</h1>
-        <a href="home" style="font-size: 35px;color:white;"><i class="fa-solid fa-arrow-left"></i></a>
-        
-        <a href="showlogin"style="font-size: 35px;color:white;float:right;"><i class="fa-solid fa-arrow-right"></i></a>
+
         <h5>Crear cuenta</h5>
         {if $error eq e2}
         <p class="error" style="color:wheat;">Ya existe esta cuenta</p>
@@ -55,12 +53,7 @@
     </div>
 
 
-    <div class="nk-page-border">
-        <div class="nk-page-border-t"></div>
-        <div class="nk-page-border-r"></div>
-        <div class="nk-page-border-b"></div>
-        <div class="nk-page-border-l"></div>
-    </div>
+
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://kit.fontawesome.com/709d08b542.js" crossorigin="anonymous"></script>
