@@ -117,6 +117,33 @@ class ApiAklasController
             $this->view->response("No se encontro nada", 404);
         }
     }
+    public function getFriends(){
+        if(!empty($_SESSION['USERNAME'])){
+            $pjs = $this->User->getPjs($_SESSION['USERNAME']);
+            $aux = array();
+            //recorrer todos los pjs de la cuenta para traer todos los amigos
+            for ($i = 0; $i<count($pjs);$i++){
+                $friends = $this->User->getFriendsChar($pjs[$i]->obj_Id);
+                $encode = json_encode($friends);
+                if ($friends){
+                
+                   $aux[$i] = json_decode($encode);
+                    
+                }
+            }
+            //Respuesta
+            if ($aux) {
+                $this->view->response($aux, 200);
+             
+              
+            } else {
+                $this->view->response("No se encontro nada", 404);
+            }
+
+        } else {
+            $this->view->response("No se encontro nada", 404);
+        }
+    }
     public function getTokenClient()
     {
         if ($this->tokenSV()) {

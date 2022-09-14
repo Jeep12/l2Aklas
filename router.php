@@ -17,6 +17,7 @@ $myAccountController = new AccountController();
 
 $params = explode('/', $action);
 switch ($params[0]) {
+   
    case 'home':
       $aklasController->showHome();
     break;
@@ -25,6 +26,9 @@ switch ($params[0]) {
    break;
    case 'register':
       $myAccountController->register();
+   break;
+   case 'changePwd':
+      $myAccountController->changePwd();
    break;
    case 'logout':
       $myAccountController->logout();
@@ -47,7 +51,7 @@ switch ($params[0]) {
    case 'downloads':
       $aklasController->showDownloads();
    break;
-   
+  
    
       
 

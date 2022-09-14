@@ -1,0 +1,27 @@
+  {if $characters neq null} {include file="templates/vue/mychars.vue"} {else}
+                <h1>Aún no tienes creado ningun personaje</h1>
+                {/if}
+
+
+                        <select class="selectChar" id="selectorPj">
+                        {foreach from=$characters item=$character}
+                            <option value="{$character->char_name}">{$character->char_name}</option>
+                        {/foreach}
+                    </select>
+                    <button id="btn-show-pj">Mostrar</button>
+
+
+                       <div class="preloader" id="preload">
+        <h1 class="tituloLoader">Lineage I I Aklas</h1>
+        <div id="loader"></div>
+    </div>
+SELECT online , friend_name,sex, class_name FROM character_friends JOIN characters ON character_friends.char_id = characters.obj_Id JOIN class_list ON characters.base_class = class_list.id WHERE char_id = 268478162;
+   <div class="imgFriend"><img src="images/profile.png" alt=""></div>
+            <div class="friendData">
+                <span class="name">
+                        {{friend.name}} 
+                    </span>
+                <span class="title">
+                        {{friend.title}}
+                    </span> {{friend.status}}
+            </div>

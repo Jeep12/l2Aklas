@@ -18,10 +18,7 @@
 </head>
 
 <body>
-    <div class="preloader" id="preload">
-        <h1 class="tituloLoader">Lineage I I Aklas</h1>
-        <div id="loader"></div>
-    </div>
+ 
 
     <video autoplay muted loop id="background">
 <source src="images/bg-2.mp4" type="video/mp4">

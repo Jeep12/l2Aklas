@@ -24,6 +24,17 @@ class UserModel extends Model {
         $query->execute([$name, $password, NULL , 0, NULL,1,$email]);
        
     }
+    public function changePwd ($name , $password){
+        echo $name;
+        echo $password;
+        $sql = "UPDATE accounts SET password = ? WHERE accounts.login = ?";
+        $query = $this->pdo->prepare($sql);
+        $query->execute([$password,$name]);
+       
+
+
+    }
+  
     public function getAccounts (){
         $query = $this->pdo->prepare('SELECT * FROM accounts');
         $query->execute();
@@ -38,7 +49,7 @@ class UserModel extends Model {
         return $user;
     }
     public function getPjs($account){
-        $query = $this->pdo->prepare('SELECT * FROM characters WHERE account_name = ?');
+        $query = $this->pdo->prepare('SELECT obj_Id, char_name FROM characters WHERE account_name = ?');
         $query->execute([$account]);
         $pjs = $query->fetchAll(PDO::FETCH_OBJ);
         return $pjs;
@@ -61,6 +72,20 @@ class UserModel extends Model {
         $query = $this->pdo->prepare("INSERT INTO `comentarios` (`autor`, `fecha`, `mensaje`) VALUES (?, ?, ?)");
         $query->execute([$autor, $fecha, $mensaje]);
         return $query;
+    }
+    public function getFriendsChar($idChar){
+        $sql = "SELECT online , friend_name,sex, class_name,title 
+        FROM character_friends JOIN characters
+        ON character_friends.friend_id = characters.obj_Id 
+        JOIN class_list ON characters.base_class = class_list.id
+        WHERE char_id = ?";
+
+        $query = $this->pdo->prepare($sql);
+        $query->execute([$idChar]);
+        $friends = $query->fetchAll(PDO::FETCH_OBJ);
+        return $friends;
+
+
     }
     public function armor($char){
         $sql= "SELECT * FROM items JOIN armor ON items.item_id = armor.item_id  WHERE owner_id= ?";

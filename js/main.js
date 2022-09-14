@@ -165,10 +165,7 @@ function removeLoader() {
 }
 
 
-const tokenClient = token();
-tokenClient.then(e => {
-    practica(e);
-})
+
 async function token() {
     let res = await fetch(url + "/getToken/", {
         'method': 'GET',
@@ -182,7 +179,6 @@ async function token() {
 
 }
 async function practica(token) {
-    console.log("https://localhost/l2_Aklas/api/pruebaApiToken/" + token);
     fetch("https://localhost/l2_Aklas/api/pruebaApiToken/" + token).then(respuesta => {
         respuesta.json().then(e => {})
     }).catch(error => {});

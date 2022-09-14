@@ -57,16 +57,19 @@ class AklasView {
             $name = " ";
         if($session){
             $isAdmin = $admin;
-            $user = $_SESSION['USERNAME'];
+            $name = $_SESSION['USERNAME'];
             $this->smarty->assign("characters", $characters);
 
 
 
         }
+
         $this->smarty->assign("user", $name);
+        
         $this->smarty->assign("admin", $admin);
 
         $this->smarty->assign("session", $session);
+      
         $this->smarty->display("templates/myprofile.tpl");
 
     }

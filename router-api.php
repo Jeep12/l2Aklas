@@ -13,6 +13,9 @@ $router->addRoute('clan/:ID', 'GET', 'ApiAklasController', 'getClan');
 $router->addRoute('inv/:ID', 'GET', 'ApiAklasController', 'getInv');
 $router->addRoute('getToken', 'GET', 'ApiAklasController', 'getTokenClient');
 $router->addRoute('pruebaApiToken/:TOKEN', 'GET', 'ApiAklasController', 'pruebaApiToken');
+$router->addRoute('getFriends', 'GET', 'ApiAklasController', 'getFriends');
+
+
 
 
 

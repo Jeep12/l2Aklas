@@ -10,10 +10,9 @@
 </head>
 
 <body>
-
-    <video autoplay muted loop id="background">
-        <source src="images/mp4Videos/fondoBlanco.mp4" type="video/mp4">
-    </video>
+<video autoplay muted loop id="background">
+<source src="images/bg-2.mp4" type="video/mp4">
+</video>
     <div class="register">
         <h1>Lineage 2 Aklas</h1>
 
