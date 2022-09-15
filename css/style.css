@@ -468,11 +468,14 @@
         }
         
         .content {
-            margin-top: 50px;
-            background-color: #0E0E0E;
             position: relative;
             margin-bottom: 15px;
             text-align: center;
+        }
+        
+        .titleNoticias {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: white;
         }
         
         .galery {
@@ -485,6 +488,33 @@
             width: 100%;
             font-family: 'Amatic SC', cursive;
             font-size: 40px !important;
+        }
+        
+        .containerNoticia {
+            background-color: black;
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .fecha {
+            background-color: green;
+            width: 50%;
+            font-family: LineageII;
+        }
+        
+        .mensaje {
+            background-color: white;
+            width: 100%;
+        }
+        
+        .autor {
+            font-family: LineageII;
+            width: 50%;
+            background-color: red;
+            text-align: center;
+            line-height: 1.2;
+            font-size: 1em
         }
         /*------------  FIN HOME --------------*/
         /*------------  DOWNLOADS TPL --------------*/
@@ -747,7 +777,9 @@
         
         .glitch {
             color: rgb(255, 255, 255);
-            position: relative;
+            position: relative !important;
+            top: 15px !important;
+            left: 5%;
             font-size: 50px;
             font-family: "LineageII";
             animation: glitch 5s 5s infinite;
@@ -783,28 +815,6 @@
             }
         }
         
-        @keyframes noise-1 {
-            $steps: 30;
-            @for $i from 1 through $steps {
-                #{percentage($i*(1/$steps))} {
-                    $top: random(100);
-                    $bottom: random(101 - $top);
-                    clip-path: inset(#{$top}px 0 #{$bottom}px 0);
-                }
-            }
-        }
-        
-        @keyframes noise-2 {
-            $steps: 30;
-            @for $i from 0 through $steps {
-                #{percentage($i*(1/$steps))} {
-                    $top: random(100);
-                    $bottom: random(101 - $top);
-                    clip-path: inset(#{$top}px 0 #{$bottom}px 0);
-                }
-            }
-        }
-        
         @keyframes glitch-2 {
             1% {
                 transform: rotateX(10deg) skewX(70deg);
@@ -821,10 +831,6 @@
             height: 1000px;
             color: white;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-        
-        .noticias {
-            background-color: black;
         }
         
         .usuarios {

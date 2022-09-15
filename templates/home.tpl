@@ -2,20 +2,22 @@
 
 <div class="banner" id="banner">
     <button>Comenzar</button>
+    
 </div>
 
 
-
+<br>
+<br>
 <div class="content">
 
 <div class="row">
-        <div class="col-sm-8">
-            <h1>ÚLTIMAS NOTICIAS</h1>
-            <div id="noticiasHome"></div>
-            </div>
-           
+        <div class="col-sm-8 " id="divNoticias">
+
+            <h1 class="titleNoticias">ÚLTIMAS NOTICIAS</h1>
+
+        </div>
     
-        <div class="col-sm-4">
+        <div class="col-sm-4" style="background:white">
             <button class="topzone fire">Topzone</button>
         </div>
     
